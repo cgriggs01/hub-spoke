@@ -4,6 +4,7 @@
 echo "Server1: Hub & Spoke Demo "
 echo " "
 echo " "
+echo "consul operator area join -peer-datacenter=dc2
 read -n 1 -s
 
 ## Request: Create Network Area with server2; Parameters: dc2, PeerDatacenter (empty) RetryJoin 192.168.33.3;
