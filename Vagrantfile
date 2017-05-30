@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
     SHELL
     server1.vm.provision "shell", inline: <<-SHELL
      bash /ops/scripts/server.sh
-     cp /vagrant/serv1.sh /home/vagrant/demo.sh
+     cp /vagrant/server1.sh /home/vagrant/demo.sh
      chmod 777 /home/vagrant/demo.sh
 
     SHELL
@@ -44,7 +44,7 @@ Vagrant.configure(2) do |config|
      cat /etc/consul.d/consul.json | jq --arg datacenter dc2 '. + {datacenter: $datacenter}' > /tmp/consul.json
      mv /tmp/consul.json /etc/consul.d/consul.json
      service consul restart
-     cp /vagrant/serv2.sh /home/vagrant/demo.sh
+     cp /vagrant/server2.sh /home/vagrant/demo.sh
      chmod 777 /home/vagrant/demo.sh
 
     SHELL
@@ -68,7 +68,7 @@ Vagrant.configure(2) do |config|
      cat /etc/consul.d/consul.json | jq --arg datacenter dc3 '. + {datacenter: $datacenter}' > /tmp/consul.json
      mv /tmp/consul.json /etc/consul.d/consul.json
      service consul restart
-     cp /vagrant/serv3.sh /home/vagrant/demo.sh
+     cp /vagrant/server3.sh /home/vagrant/demo.sh
      chmod 777 /home/vagrant/demo.sh
 
     SHELL
