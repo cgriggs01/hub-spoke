@@ -4,7 +4,7 @@
 echo "Server1: Hub & Spoke Demo "
 echo " "
 echo " "
-echo "consul operator area join -peer-datacenter=dc2"
+echo "$ consul operator area join -peer-datacenter=dc2 -retry-join=192.168.33.3"
 read -n 1 -s
 
 ## Request: Create Network Area with server2; Parameters: dc2, PeerDatacenter (empty) RetryJoin 192.168.33.3;
@@ -20,10 +20,15 @@ curl -X "POST" "http://192.168.33.2:8500/v1/operator/area" \
 
 echo " "
 echo " "
+echo "$ consul operator area list"
 read -n 1 -s
 
 ## Request: List Network Areas; Parameters: datacenter (string ""); Docs: https://www.consul.io/api/operator/area.html#list-network-areas;
 curl "http://192.168.33.2:8500/v1/operator/area?dc"
+
+echo " "
+echo " "
+echo "$ consul operator area members"
 read -n 1 -s
 ## Request: List Network Area Members; Parameters: datacenter (string ""); Docs: https://www.consul.io/api/operator/area.html#list-network-area-members;
 consul operator area members
@@ -35,11 +40,14 @@ read -n 1 -s
 curl "http://192.168.33.2:8500/v1/operator/area?dc"
 echo " "
 echo " "
+echo "$ consul operator area members"
 read -n 1 -s
 ## Request: List Network Area Members; Parameters: datacenter (string ""); Docs: https://www.consul.io/api/operator/area.html#list-network-area-members;
 consul operator area members
 echo " "
+echo " " 
 echo " "
+echo "$ consul operator area create -peer-datacenter=dc3 -retry-join=192.168.33.3"
 read -n 1 -s
 
 
@@ -55,12 +63,14 @@ curl -X "POST" "http://192.168.33.2:8500/v1/operator/area" \
 }'
 echo " "
 echo " "
+echo "$ consul operator area list"
 read -n 1 -s
 
 ## Request: List Network Areas; Parameters: datacenter (string ""); Docs: https://www.consul.io/api/operator/area.html#list-network-areas;
 curl "http://192.168.33.2:8500/v1/operator/area?dc"
 echo " "
 echo " "
+echo "$ consul operator area members"
 read -n 1 -s
 ## Request: List Network Area Members; Parameters: datacenter (string ""); Docs: https://www.consul.io/api/operator/area.html#list-network-area-members;
 consul operator area members
