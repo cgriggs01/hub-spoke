@@ -5,6 +5,8 @@ echo  "Server3: Hub & Spoke Demo"
 echo " "
 echo " "
 read -n 1 -s
+echo "consul operator area creat -peer-datacenter=dc1 -retry-join=192.168.33.2"
+read -n 1 -s
 
 ## Request: Create Network Area; Parameters: dc, PeerDatacenter RetryJoin;
 curl -X "POST" "http://192.168.33.4:8500/v1/operator/area" \
